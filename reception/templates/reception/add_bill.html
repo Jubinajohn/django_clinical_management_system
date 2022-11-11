@@ -1,0 +1,58 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Bill</title>
+  <style>
+    table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+  }
+   </style>
+{% tailwind_css %}
+ </head>
+ <body class="bg-slate-300">
+ <div class="flex justify-center">
+ <form class="" action="" method="post"> 
+  {% csrf_token %}
+ 
+   <div class="flex mt-5 font-bold text-black">Prescribed by :
+    <input class="w-72 h-10 rounded-lg ml-2" type="text" name="prescribed_by" id="prescribed_by">
+   </div>
+
+   <div class="flex justify-start font-bold text-black mt-4 ">Doctor type : 
+    <input class="w-72 h-10 rounded-lg ml-2" type="text" name="doctor_type" id="doctor_type">
+   </div>
+   </div>
+
+   <div class="ml-10 font-bold text-black mt-10">Bill No :
+    <input class="rounded-lg w-32 h-10" type="text" name="bill_no" id="bill_no">
+   </div> 
+
+   <div class="ml-10 font-bold text-black mt-4">OP No : 
+    <input class="rounded-lg w-24 h-10" type="text" name="op_no" id="op_no">
+    </div>
+
+    <div class="ml-10 font-bold text-black mt-4">Name :
+    <input class="rounded-lg w-96 h-10" type="text" name="name" id="name">
+    </div>
+
+    <div class="ml-10 font-bold text-black mt-4">Address : 
+    <textarea class="rounded-lg w-80 h-24" type="text" name="address" id="address"></textarea>
+    </div>
+    <br>
+   <div class="mt-20 text-black font-bold ml-10">CASH : <input class="w-96 h-10 rounded-lg" type="text" name="cash" id="cash"> </div>
+   <div class=" text-black font-bold mt-4 ml-10">Billed by : <input class="w-96 h-10 rounded-lg" type="text" name="billed_by" id="billed_by"> </div>
+   <div class="text-black font-bold mt-4 ml-10">Date : <input class="w-32 h-10 rounded-lg" type="text" name="date" id="date"> </div>
+   <div class=" text-black font-bold mt-4 ml-10">Time : <input class="w-24 h-10 rounded-lg" type="text" name="time" id="time"></div>
+   <div class=" text-black font-bold mt-4 ml-10">Net Amount : <input class="w-32 h-10 rounded-lg" type="text" name="net_amount" id="net_amount"></div>
+   
+   <div class="flex justify-start ml-10">
+    <button type="submit" class="mr-10 focus:outline-none text-black bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-l px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+   </div>
+</form> 
+</div>
+</body>
+</html>

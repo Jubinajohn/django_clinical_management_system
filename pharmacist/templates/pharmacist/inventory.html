@@ -1,0 +1,74 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Stock Details</title>
+  <style>
+    body {
+      background-color: mintcream;
+      
+    }
+    table {
+    background-color: white;
+    border:1px solid black;margin-left:auto;margin-right:auto;
+    }
+    th{
+    background-color: white;
+    border: 1px solid black;
+    }
+    td {
+      border: 1px solid black;
+    }
+    tr{
+    background-color: white;
+    }
+   th{
+    font-style:bold;
+    color:black;
+   }
+  </style>
+{% tailwind_css %} 
+</head>
+<body>
+  <h1 class="text-center text-black font-bold text-lg italic mt-1">Medicine Stock Details</h1>
+  <div class="flex justify-end mr-10">
+  <a href="{% url 'pharmacist:addinventory'%}">
+  <input class="text-black w-38 text-center cursor-pointer text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" name="addinventory" value="Add Inventory" />
+  </a>
+  </div>
+
+  <div class="overflow-x-auto ">
+     <table class="mt-6"  width="75%" height="5%" id="documentsTable" >
+       <tr>
+         <th class="text-black font-bold">Sl.No</th>
+         <th class="text-black font-bold">Drug</th>
+         <th class="text-black font-bold">Purpose</th>
+         <th class="text-black font-bold">Mfg.date</th>
+         <th class="text-black font-bold">Exp.date</th>
+         <th class="text-black font-bold">Quantity</th>
+         <th class="text-black font-bold">Unit Price</th>
+         <th class="text-black font-bold">Total Price</th>
+         <th class="text-black font-bold text-center">🖊️Update</th>
+         <th class="text-black font-bold text-center">🗑️Delete</th>
+       </tr>
+       {% for i in inv %}
+       <tr>
+        
+         <td class="text-black font-bold text-center h-10">{{i.serial_no}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.drug}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.purpose}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.mfg_date}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.exp_date}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.quantity}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.unitprice}}</td>
+         <td class="text-black font-bold text-center h-10">{{i.totalprice}}</td>
+         <td><a href="{% url 'pharmacist:updateinventory' i.id %}"><input class="text-black w-24 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center h-10 ml-2" type="submit" value="Update"/></a></td>
+         <td><a href="{% url 'pharmacist:delinventory' i.id %}"><input class="text-black w-24 h-10 cursor-pointer bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2" type="submit" value="Delete"/></a></td>
+       </tr>
+       {% endfor %}
+   </table>
+</div>
+</body>
+</html>

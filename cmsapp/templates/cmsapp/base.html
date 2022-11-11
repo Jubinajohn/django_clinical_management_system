@@ -1,0 +1,76 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Management System</title>
+ {% tailwind_css %}
+</head>
+<body>
+    <div class="w-full h-full bg-no-repeat bg-cover"style="background-image:url('http://elixiraid.com/wp-content/uploads/2015/03/hospital-management-software.jpg');">
+    <div class="navbar bg-teal-400 shadow-xl border-solid border-2 border-sky-200">
+    <img class="h-24 mr-10" src="https://www.medicazone.in/images/MZ.png" class="ml-10 h-6 sm:h-9" alt="" />
+    <a class="navbar-brand mr-4" href="#">
+    <span class='italic font-bold mr-10 self-center text-xl whitespace-nowrap dark:text-black' style='font-size:24px'>LCC</span>
+    </a>
+    
+      <div class="flex space-x-4 ">
+      <a  class=" bg-emerald-500 hover:bg-sky-700 dark:text-black px-3 py-3 ml-20 rounded-lg text-l font-bold w-24 text-center" href="{% url 'cmsapp:homeview' %}">Home</a>
+      <a href="{% url 'cmsapp:aboutus' %}" class=" text-black-600 bg-emerald-500 hover:bg-sky-700 ml-20 dark:text-black px-3 py-2 rounded-lg text-l font-bold">About us</a>
+      <a href="{% url 'cmsapp:contactus' %}" class="text-black-600 bg-emerald-500 hover:bg-sky-700 ml-20 dark:text-black px-3 py-2 rounded-lg text-l font-bold">Contact</a>
+       
+      <label class="font-bold text-black">Register as:</label>
+      <select class="bg-lime-100 ml-4 rounded-full cursor-pointer"id="menu" name="links" size="1" onchange="window.location.href=this.value;">
+      <option>Choose option</option>
+      <option  value="{% url 'users:register' %}">🩺Doctor</option>
+      <option  value="{% url 'patient:patregister' %}">🤒Patient</option>
+      <option  value="{% url 'reception:register' %}">📞Receptionist</option>
+      <option value="{% url 'pharmacist:register' %}">💊Pharmacist</option>
+      </select>
+      </div>
+
+      <label class="font-bold text-black ml-6">Login as:</label>
+      <select class="bg-lime-100 ml-4 rounded-full cursor-pointer" id="menu" name="links" size="1" onchange="window.location.href=this.value;">
+      <option>Choose option</option>
+      <option  value="{% url 'users:login' %}">🩺Doctor</option>
+      <option  value="{% url 'patient:login2' %}">🤒Patient</option>
+      <option  value="{% url 'reception:login1' %}">📞Receptionist</option>
+      <option value="{% url 'pharmacist:login3' %}">💊Pharmacist</option>
+      </select>
+      </div>
+{% block content %}      
+</body>
+</html>
+{% endblock %}
+
+<footer class="p-4  shadow md:px-6 md:py-8  #ca8a04">
+  <div class="sm:flex sm:items-center sm:justify-between">
+  <a href="https://cms.com/" class="flex items-center mb-4 sm:mb-0">
+  <img src="https://www.medicazone.in/images/MZ.png" class="mr-3 h-8" alt="CMS Logo">
+  <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-black-600 italic">LCC</span>
+  </a>
+  <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+          <li>
+              <a href="{% url 'cmsapp:aboutus' %}" class="mr-4 hover:underline md:mr-6 font-bold dark:text-black">About</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6 font-bold dark:text-black">Privacy Policy</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6 font-bold dark:text-black">Licensing</a>
+          </li>
+          <li>
+              <a href="{% url 'cmsapp:contactus' %}" class="hover:underline font-bold dark:text-black">Contact</a>
+          </li>
+  </ul>
+  </div>
+  <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+  <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://cms.com/" class="hover:underline">Life Care Clinic™</a>. All Rights Reserved.
+  </span>
+</footer>
+
+
+
+

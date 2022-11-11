@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Histlist</title>
+  <style>
+    body {
+      background-color: floralwhite;
+    }
+  </style>
+{% tailwind_css %}
+</head>
+<body >
+
+  <form action="" method="POST" >
+    {% csrf_token %}
+   <div>
+   <input  class="mt-4 ml-4 rounded-lg border-4 border-gray-700" type="search"  id="id_no"  name="id_no"   placeholder="Search the history...." />
+   <button  class="bg-cyan-200 hover:bg-cyan-600 font-bold text-black rounded-lg border-dotted border-2 border-sky-500 text-xl" type="submit">Search</button>
+   </div>
+   </form>   
+   
+<div class="grid grid-rows-4 grid-flow-col gap-4 ml-96  ">
+  <ol>
+  {% for h in hist %}
+  <button type="button" class="bg-lime-600 shadow-lg shadow-cyan-500/ w-40 h-12 rounded-lg mt-10 m-10 ml-2 h-24 ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100 ">
+  <a href= "{% url 'cmsapp:patienthist' h.id %}" class="text-black font-bold hover:underline">{{h.id_no}}
+  </button></a>
+  {% endfor %}
+  </ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Registration</title>
+  <style>
+    body {
+      background-color: rgba(140, 217, 98, 0.69);
+    }
+    
+  </style>
+{% tailwind_css %}
+</head>
+<body>
+<h1 class="text-2xl font-bold  ml-20 font-mono text-center text-black">🧑‍⚕️Doctor Registration👩‍⚕️</h1>
+<div class="flex justify-center ">
+ <div class="content-section  mr-10 ml-10">
+        <form action="" method="POST" class="w-full  drop-shadow-2xl border-4 border-black-200 bg-white shadow-2xl shadow-indigo-500/50 cursor-pointer mb-10 p-10 rounded-lg ">
+            {% csrf_token %}
+            <fieldset class="form-group">
+            <legend class="border-bottom mb-4 font-bold italic text-2xl text-black">
+                    Join Today!
+            </legend>
+               <div class="grid grid-cols-3 gap-2">
+                <div class="mb-5">
+                  <label class="block text-black italic text-sm font-bold cursor-pointer mb-2 " for="">Name</label>
+                  <div class="appearance-none  w-96 rounded-lg cursor-pointer text-grey-800 ">
+                      {{form.name}}
+                </div>
+                </div>
+          
+              <div class="mb-5">
+                  <label class="block  text-sm cursor-pointer font-bold mb-2 text-black italic" for="">Qualification</label>
+                  <div class="appearance-none  w-96 cursor-pointer rounded-lg text-grey-800">
+                      {{form.qualification}}
+          
+              </div>
+              </div>
+          
+              
+              <div class="mb-5">
+                  <label class="block  text-sm font-bold cursor-pointer  text-black italic" for="">Mobile Number</label>
+                  <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2">
+                      {{form.mobile}}
+          
+              </div>
+              </div>
+
+               <div class="mb-5">
+                 <label class="block  text-sm font-bold cursor-pointer mt-5 text-black italic " for="">Email</label>
+                <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2"> 
+                    {{form.email}} 
+
+                </div>
+                </div>
+
+               <div class="mb-5">
+                <label class="block  text-sm font-bold cursor-pointer mt-5 text-black italic " for="">Username</label>
+               <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2"> 
+                   {{form.username}} 
+               </div>
+               </div> 
+
+               <div class="mb-5">
+               <label class="block  text-sm font-bold cursor-pointer mt-5 text-black italic" for="">Password</label>
+               <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2">
+              {{form.password1}}
+               </div>
+               </div>
+
+              <div class="mb-5">
+              <label class="block text-sm font-bold cursor-pointer mt-5 text-black italic" for="">Password Confirmation</label>
+              <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2">
+                {{form.password2}}
+              </div>
+              </div>
+
+              <div class="mb-5">
+              <label class="block  text-sm font-bold cursor-pointer mt-5 text-black italic" for="">Address</label>
+              <div class="appearance-none w-96 rounded-lg cursor-pointer text-grey-800 mt-2">
+                {{form.address}}
+              </div>
+              </div>
+            </div>
+            </fieldset>
+          
+            <div class="form-group">
+                <button class="btn btn-success font-bold hover:bg-green-500" type="submit">Register</button>
+            </div>
+            <div class="border-top pt-3 mb-20 ml-10 cursor-pointer">
+                <small class="text-muted ml-6">
+                    Already have an account? <a href="{% url 'users:login' %}" class="ml-6 text-green-600 font-semibold hover:underline">Login</a>
+                </small>
+            </div>
+</form>
+</div>
+</div>
+</body>
+{% block content %} 
+</html>
+{% endblock %}
+

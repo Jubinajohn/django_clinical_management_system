@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Patient</title>
+  <style>
+    body {
+  background-color: rgb(242, 62, 215);
+}
+form {
+    width: 30%;
+    background: white;
+  margin: 0 auto;
+  text-align: left;
+  border: 5px solid black;
+  padding: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border-radius: 30px;
+  
+}
+input[type=submit] {
+  background-color:rgb(242, 62, 215);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  margin-left:300px;
+  border-style: dashed;
+}
+input[type=submit]:hover {
+  background-color: purple;
+}
+input[type=text] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+legend {
+  background-color:rgb(223, 10, 141);
+  color: white;
+  padding: 5px 10px;
+  font-weight: bolder;
+  
+}
+</style>
+</head>
+
+<body>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+    <legend>➕Add Patient🤒 </legend>
+  
+ 
+     <p>
+        <label>Patient ID:<input  type="id" name="patient_id"style="border-radius: 25px;height: 25px;border-color:black"></label>
+       
+      </p>
+         
+      <p>
+        <label>Name: <input name="name"style="border-radius: 25px;height: 25px;border-color:black" /></label>
+       
+      </p>
+ 
+       <p>
+        Gender :
+        <label><input type="radio" name="gender" value="Male" /> Male</label>
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+        <label><input type="radio" name="gender" value="Others" /> Others</label>
+       </p>
+ 
+       <p>
+        <label>Blood Group:</label>
+            <select name="bloodgroup" style="border: 2px solid black;border-radius: 25px;height: 25px;">
+            <option>---------</option>
+            <option>A Positive</option>
+            <option>A Negative</option>
+            <option>A Unknown</option>
+            <option>B Positive</option>
+            <option>B Negative</option>
+            <option>B Unknown</option>
+            <option>AB Positive</option>
+            <option>AB Negative</option>
+            <option>AB Unknown</option>
+            <option>O Positive</option>
+            <option>O Negative</option>
+            <option>O Unknown</option>
+            <option>Unknown</option>
+            </select>
+   
+        </p> 
+
+      <p>
+        <label>Age:<input  type="age" name="age"style="border-radius: 25px;height: 25px;border-color:black"></label>
+      </p>
+      
+       <p>
+        <label>
+          Address :
+          <br />
+          <textarea name="address" cols="30" rows="3"style="border-radius: 25px;height: 55px;border:2px solid black;"></textarea>
+        </label>
+      </p>
+
+      <p>
+        <label>Taluk:<input type="text" name="taluk"style="border-radius: 25px;height: 25px;border-color:black"></label>
+      </p> 
+
+     <p>
+        <label>Mobilenumber:<input  type="mobile_number" name="mobile_number"style="border-radius: 25px;height: 25px;border-color:black"></label>
+      </p>
+      
+      <p>
+        <label>Email:<input  type="email" name="email" style="border-radius: 25px;height: 25px;border-color:black"/></label>
+      </p>
+ 
+ 
+      <p>
+        <!-- <button type="submit">Submit</button> -->
+        <input type="submit" value="Add">
+      </p>
+ </fieldset>
+</form>
+</body>
+</html>

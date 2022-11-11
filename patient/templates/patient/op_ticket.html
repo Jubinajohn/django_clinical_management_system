@@ -1,0 +1,51 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OP Ticket</title>
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+{% tailwind_css %}
+</head>
+<body>
+  <form class="w-full h-full"> 
+    {% csrf_token %}
+  
+    <div class="flex justify-center">
+    <img class="h-24  mt-5" src="https://www.medicazone.in/images/MZ.png" class="  h-6 sm:h-9" alt="" />
+    </div>
+     
+    <h1 class="text-center font-bold font-family italic text-black">LIFE CARE CLINIC </h1>
+    <h1 class="text-center font-bold font-family italic text-black">MANARCAD </h1>
+    <h1 class="text-center text-black">0481-2380144, 2370188</h1>
+    <h1 class="text-center font-bold text-black">OP Ticket</h1>
+
+{% for o in op %}
+  <div class="flex justify-end font-bold text-black mr-40 ml-10">Date : {{o.date}}</div>
+  <div class="flex justify-end font-bold text-black mr-40">Doctor : {{o.doctor}}</div>
+  <div class="flex justify-end font-bold text-black mr-40 ml-10">Token No : {{o.token_no}}</div>
+
+  <div class="ml-10 font-bold text-black mt-20">OP No : {{o.op_no}}</div>
+  <div class="ml-10 font-bold text-black">Name : {{o.name}}</div>
+  <div class="ml-10 font-bold text-black">Address : {{o.address}}</div>
+  <div class="ml-10 font-bold text-black mt-6">Registration fee : {{o.registration_fee}}</div>
+  <div class="ml-10 font-bold text-black">Consultation fee : {{o.consultation_fee}}</div>
+  <div class="ml-10 font-bold text-black">Total : {{o.total}}</div>
+  <div class="ml-10 font-bold text-black">Cash : {{o.cash}}</div>
+  <div class="ml-10 font-bold text-black mt-6">Billed by : {{o.billed_by}} Time : {{o.time}}</div>
+  <p class="font-bold text-red-900 italic ml-10">Please save this Clinic No in your mobile phone</p>
+{% endfor %}
+</form>
+{% for o in op %}
+  <div class="flex justify-end ">
+  <a href="{% url 'patient:delete_ticket' o.id %}">
+  <input class="text-black w-24 h-10 cursor-pointer mb-5 mr-6 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"  type="submit" value="Delete"></a>
+  </div>
+{% endfor %}
+</body>
+</html>

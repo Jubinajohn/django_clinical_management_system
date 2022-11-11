@@ -1,0 +1,63 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Inventory</title>
+  <style>
+    body {
+      background-color: rgb(253, 248, 248);
+    }
+    form {
+      max-width: 900px;
+      margin: auto;
+      background-color: dimgray;
+    } 
+  </style>
+{% tailwind_css %}
+</head>
+<body>
+  <h1 class="text-2xl font-bold text-center text-black">🗑️Delete Medicine</h1>
+  <form class="w-2/5 shadow-2xl bg-stone-100 cursor-pointer mt-6 p-10 rounded" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Sl.No : {{inv.serial_no}}</label>
+    </div>
+
+    <div class="mb-5">
+    <label class="block text-black text-sm cursor-pointer font-bold mb-2 italic" for="">Drug : {{inv.drug}}</label>
+    </div>
+
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Purpose : {{inv.purpose}}</label>
+    </div>
+
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Mfg.date : {{inv.mfg_date}}</label>
+    </div>
+  
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Exp.date : {{inv.exp_date}}</label>
+    </div>
+  
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Quantity : {{inv.quantity}}</label>
+    </div>
+
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Unit Price : {{inv.unitprice}}</label>
+    </div>
+
+    <div class="mb-5">
+    <label class="block text-black text-sm font-bold cursor-pointer mb-2 italic" for="">Total Price : {{inv.totalprice}}</label>
+    </div>
+
+    <div class="mb-5">
+    <input class="focus:outline-none text-black bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-bold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit" name="Delete Medicine" value="Delete Medicine"> 
+    </div>
+    
+</form>
+</body>
+</html>

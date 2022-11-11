@@ -1,0 +1,59 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Medicine</title>
+  <style>
+    body {
+      background-color: darkgray;
+    }
+  </style>
+{% tailwind_css %}
+</head>
+<body>
+  <form class="w-full h-full" method="POST" action="">
+    {% csrf_token %}
+      <div class="grid grid-cols-3 gap-4">
+      <div class="ml-10 font-bold text-black ">Serial No :
+        <input class="rounded-lg w-32 h-10 mt-5" type="text" name="serial_no" id="serial_no">
+      </div> 
+
+       <div class="font-bold text-black mt-4">Name of drugs : 
+        <input class="rounded-lg w-72 h-10" type="text" name="name_of_drugs" id="name_of_drugs">
+       </div>
+
+       <div class="ml-10 font-bold text-black mt-4">Batch :
+        <input class="rounded-lg w-32 h-10" type="text" name="batch" id="batch">
+       </div>
+
+       <div class="ml-10 font-bold text-black ">Expiry : 
+       <input class="rounded-lg w-32 h-10 mt-5" type="text" name="expiry" id="expiry">
+       </div>
+
+       <div class="ml-10 font-bold text-black ">Quantity : 
+       <input class="rounded-lg w-32 h-10 mt-5" type="text" name="quantity" id="quantity">
+       </div>
+
+       <div class="ml-10 font-bold text-black">Rate : 
+       <input class="rounded-lg w-32 h-10 mt-5" type="text" name="rate" id="rate">
+       </div>
+
+       <div class="ml-10 font-bold text-black ">Amount : 
+       <input class="rounded-lg w-32 h-10 mt-5" type="text" name="amount" id="amount">
+       </div>
+      </div>
+
+      <div class="flex justify-start mt-40 ml-10">
+        <button type="submit" class="mr-10 focus:outline-none text-black bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-l px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add</button>
+      </div> 
+     
+      <div class="flex justify-center mr-10">
+      <a href="{% url 'reception:addbill'%}">
+      <input class="text-black w-32 cursor-pointer bg-gradient-to-p from-purple-400 via-purple-500 to-purple-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-bold rounded-lg text-l px-5 py-2.5 text-center mr-2 mb-2" name="addbill" value="Add Bill" />
+      </a>
+      </div>
+</form>
+</body>
+</html>

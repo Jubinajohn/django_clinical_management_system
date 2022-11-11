@@ -1,0 +1,97 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultation Receipt</title>
+  <style>
+   table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  </style>
+{% tailwind_css %}
+</head>
+<body class="bg-white">
+<div class="flex justify-center">
+<form class="w-10/12 h-full"> 
+  {% csrf_token %}
+
+  <div class="flex justify-center">
+  <img class="h-24 mr-10" src="https://www.medicazone.in/images/MZ.png" class="  h-6 sm:h-9" alt="" />
+  </div>
+   
+  <h1 class="text-center font-bold font-family italic text-black">LIFE CARE CLINIC </h1>
+  <h1 class="text-center font-bold font-family italic text-black">MANARCAD </h1>
+  <h1 class="text-center text-black">0481-2380144, 2370188</h1>
+  <h1 class="text-center font-bold text-black">CONSULTATION RECEIPT</h1>
+
+
+  {% for b in bill %}
+  <div class="flex justify-end font-bold text-black mr-1">Prescribed by : {{b.prescribed_by}}</div>
+  <div class="flex justify-end font-bold text-black mr-20 ">Doctor type : {{b.doctor_type}}</div>
+  <div class="ml-10 font-bold text-black mt-10">Bill No : {{b.bill_no}}</div>
+  <div class="ml-10 font-bold text-black">OP No : {{b.op_no}}</div>
+  <div class="ml-10 font-bold text-black">Name : {{b.name}}</div>
+  <div class="ml-10 font-bold text-black">Address : {{b.address}}</div>
+  {% endfor %} 
+
+  <div class="overflow-x-auto ">
+  <table  width="95%"  height="10%" >
+  <thead>
+    <tr>
+    <th class="text-black font-bold">Sl No</th>
+    <th class="text-black font-bold">Name of Drugs</th> 
+    <th class="text-black font-bold">Batch</th> 
+    <th class="text-black font-bold">Expiry</th>
+    <th class="text-black font-bold">Qty</th> 
+    <th class="text-black font-bold">Rate</th> 
+    <th class="text-black font-bold">Amount</th>
+    </tr>
+  </thead>  
+           
+  <tbody>
+        {% for m in medi %}        
+            <tr>
+            <td class="font-bold text-gray-800 text-center">{{m.serial_no}}</td>
+            <td class="font-bold text-gray-800 text-center">{{m.name_of_drugs}}</td>
+            <td class="font-bold text-gray-800 text-center">{{m.batch}}</td> 
+            <td class="font-bold text-gray-800 text-center">{{m.expiry}}</td> 
+            <td class="font-bold text-gray-800 text-center">{{m.quantity}}</td> 
+            <td class="font-bold text-gray-800 text-center">{{m.rate}}</td> 
+            <td class="font-bold text-gray-800 text-center">{{m.amount}}</td> 
+            </tr>
+          {% endfor %}
+  </tbody>
+  </table>
+</div>
+ 
+ 
+ {% for b in bill %}
+  <div class="mt-60 text-black font-bold">CASH : {{b.cash}}</div>
+  <div class=" text-black font-bold">Billed by : {{b.billed_by}}</div>
+  <div class="text-black font-bold ">Date : {{b.date}}</div>
+  <div class=" text-black font-bold">Time : {{b.time}}</div>
+  {% endfor %}
+  
+  {% for b in bill %}
+  <div class="flex justify-end mt-20 text-black font-bold">
+    <p>Net Amount : {{b.net_amount}}</p>
+  </div>
+  {% endfor %}
+</form>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<div class="flex justify-end ">
+<a href="{% url 'reception:meddelete'  %}">
+ <input class="text-black w-24 h-10 cursor-pointer mb-5 mr-6 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-20 mt-20"  type="submit" value="Delete"></a>
+</div>
+      
+<div class="flex justify-start ">
+<a href="{% url 'reception:billdelete'  %}">
+<input class="text-black w-24 h-10 cursor-pointer mb-5 mr-6 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 " type="submit" value="Delete"></a>
+</div>
+</div>
+</body>
+</html>

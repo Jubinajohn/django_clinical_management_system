@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescribed Medicines</title>
+ <style>
+    body {
+      background-color: darkgrey;
+    }
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    input[type=submit] {
+            background-color: red;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            padding: 10px 10px;
+            margin-left: 1200px;
+            cursor: pointer;
+
+         }
+  </style>
+</head>
+<body>
+ 
+  <h1>Prescribed Medicines</h1>
+  <a href="{% url 'reception:deletepresmedicine' %}">
+  <input type="submit" value="Delete"></a>
+   
+  <ul>
+    {% for m in med %}
+    <li><a href= "{% url 'reception:viewpatmed' m.id %}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

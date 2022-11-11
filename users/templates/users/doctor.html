@@ -1,0 +1,123 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Doctor Homepage</title>
+{% tailwind_css %}
+</head>
+<body>
+ <div class=" object-cover h-full w-full "style="background-image:url('https://www.pngitem.com/pimgs/m/75-754118_black-and-white-doctor-clipart-hd-png-download.png');">
+<!-- component -->
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+ 
+<div class="min-h-screen flex flex-row bg-base-500 ">
+  <div class="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden ">
+    <div class="flex items-center justify-center h-20 shadow-md ">
+      <img class="w-1/3 mr-10 " src="https://www.medicazone.in/images/MZ.png" class="ml-10 h-6 sm:h-9" alt="" />
+      <h1 class="text-3xl uppercase text-white-500 font-bold">LCC</h1>
+    </div>
+    {% if user.is_authenticated %}    
+  <p class="nav-item nav-link font-bold text-amber-900 italic mt-6 text-center ">Welcome {{user.username}}!</p>   {% endif %} 
+    <ul class="flex flex-col py-4">
+      <li>
+        <a href="{% url 'cmsapp:homeview' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-home"></i></span>
+          <span class="text-sm font-bold">Home</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'cmsapp:aboutus' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px">people_outline</i></span>
+          <span class="text-sm font-bold">About us</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'cmsapp:contactus' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px;color:red">contact_phone</i></span>
+          <span class="text-sm font-bold">Contact</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'users:patientview' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px">people</i></span>
+          <span class="text-sm font-bold ">View Patient</span>
+        </a>
+      </li>
+     
+      <li>
+        <a href="{% url 'cmsapp:addpatmedicine' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px">add_to_photos</i></span>
+          <span class="text-sm font-bold">Add Prescription</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'cmsapp:histlist' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px">people</i></span>
+          <span class="text-sm font-bold">View Patient History</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'users:consultlist' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="material-icons" style="font-size:28px">people</i></span>
+          <span class="text-sm font-bold">View Online Consultant</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'users:changepass' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-user"></i></span>
+          <span class="text-sm font-bold">Change Password</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="{% url 'users:logout' %}" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
+          <span class="text-sm font-bold">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+{% block content %} 
+</html>
+{% endblock %}
+<footer class="p-4 bg-white">
+    <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="https://cms.com/" class="flex items-center mb-4 sm:mb-0">
+            <img src="https://www.medicazone.in/images/MZ.png" class="mr-3 h-8" alt="CMS Logo">
+            <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-black-600 italic">LCC</span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+            <li>
+                <a href="{% url 'cmsapp:aboutus' %}" class="mr-4 hover:underline md:mr-6 font-semibold text-gray-600">About</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6 font-semibold text-gray-600">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6 font-semibold text-gray-600">Licensing</a>
+            </li>
+            <li>
+                <a href="{% url 'cmsapp:contactus' %}" class="hover:underline font-semibold text-gray-600">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://cms.com/" class="hover:underline">Life Care Clinic™</a>. All Rights Reserved.
+    </span>
+</footer>
+  
+  
+  
+  
+  

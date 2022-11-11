@@ -1,0 +1,28 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Consult Patient Details</title>
+{% tailwind_css %}
+</head>
+<body>
+  <body class="h-screen bg-gradient-to-b from-green-200 to-green-600 border-8 border-gray-900" >
+  <div class="card bg-teal-400 text-primary-content  mt-20 ml-96  shadow-2xl shadow-indigo-500/50" style="height: 350px; width: 750px;">
+  <div class="card-body"> 
+  <div class="card-actions justify-center">
+  <button  class="text-gray-900 font-bold shadow-2xl bg-cyan-500 shadow-lg shadow-cyan-500/50 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{{book.name}} Details</button>
+  </div>
+    <div class="grid grid-cols-2 gap-2" >
+    <div class="mt-10 text-black font-bold italic">Name: {{book.name}}</div>
+    <div class="mt-10 text-black font-bold italic">Mobile Number: {{book.mobile_number}}</div>
+    <div class="mt-10 text-black font-bold italic">Email address: {{book.email}}</div>
+    <div class="mt-10 text-black font-bold italic">Booked Day: {{book.select_day}}</div>
+    <div class="mt-10 text-black font-bold italic">Time: {{book.select_time}}</div>
+    <div class="mt-10 text-black font-bold italic">Location: {{book.location}}</div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

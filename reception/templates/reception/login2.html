@@ -1,0 +1,62 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptionist Login</title>
+ 
+  {% tailwind_css %}
+  <style>
+    form {
+      background-image: url('https://img.favpng.com/21/6/24/administrative-professional-png-receptionist-png-favpng-PmzfzD2m1KzhZJpB3uqPUTDjj.jpg');
+    }
+  </style>
+</head>
+<body>
+<div class="hero-content flex-col lg:flex-row-reverse">
+<div class="text-center lg:text-left">
+  <h1 class="text-5xl font-bold ml-20 mt-20 italic">Login now!</h1>
+ 
+</div>
+<form method="POST" action="" class="w-1/2 border-4 border-sky-500 drop-shadow-2xl shadow-2xl shadow-indigo-500/50 cursor-pointer m-10 p-10 rounded-xl ">
+  {% csrf_token %}
+   
+  <div class="mb-5">
+    <label class="block text-black italic text-sm font-bold cursor-pointer mb-2 " for="">Username</label>
+    <div class="appearance-none  cursor-pointer text-grey-800  ">
+        {{form.username}}
+</div>
+</div>
+  
+   <div class="mb-5">
+    <label class="block text-black italic text-sm font-bold cursor-pointer mb-2 " for="">Password</label>
+    <div class="appearance-none cursor-pointer text-grey-800 ">
+        {{form.password}}
+</div>
+</div>
+
+  <div class="flex items-start mb-6">
+    <label class="label">
+      <a href="" class="label-text-alt link link-hover text-red-700 mr-10 hover:underline">Forgot password?</a>
+    </label>
+  </div>
+  
+  <input type="hidden" name="next" value="/reception/rec/">
+  <div class="form-group flex justify-end">
+   <button class="btn btn-success font-bold hover:bg-green-500" type="submit">Login</button>
+  </div>
+
+  <div class="border-top pt-3 mb-10 ml-20 ">
+    <small class="text-muted">
+        New to Hospital? <a href="{% url 'users:register' %}" class="ml-4 text-green-600 font-semibold hover:underline">Register</a>
+    </small>
+  </div>
+</form>
+</div>
+
+</body>
+</html>
+  
+

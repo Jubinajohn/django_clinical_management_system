@@ -1,0 +1,58 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient History</title>
+  <style>
+   
+    table {
+    background-color: white;
+    border:1px solid black;margin-left:auto;margin-right:auto;
+    }
+    th{
+    background-color: white;
+    border: 1px solid black;
+    }
+    td {
+      border: 1px solid black;
+    }
+    tr{
+    background-color: white;
+    }
+   th{
+    font-style:bold;
+    color:black;
+   }
+  </style> 
+  {% tailwind_css %}
+</head>
+<body>
+  
+     <form class="w-full h-full shadow-2xl  bg-stone-300 cursor-pointer p-10" method="" enctype="multipart/form-data">
+     {% csrf_token %}
+      <table   width="95%" height="12%" id="documentsTable">
+      <tr>
+          <th>ID Number</th>
+          <th>Name</th>
+          <th>Disease</th>
+          <th>Medicine</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Paid Amount</th>
+      </tr>
+      <tr>
+         
+          <td class="text-black font-bold text-center">{{hist.id_no}}</td>
+          <td class="text-black font-bold text-center">{{hist.name}}</td>
+          <td class="text-black font-bold text-center">{{hist.disease}}</td>
+          <td class="text-black font-bold text-center">{{hist.medicine}}</td>
+          <td class="text-black font-bold text-center">{{hist.doctor}}</td>
+          <td class="text-black font-bold text-center">{{hist.date}}</td>
+          <td class="text-black font-bold text-center">{{hist.paid_amount}}</td>
+         
+      </tr>
+      </table>
+</body>
+</html>

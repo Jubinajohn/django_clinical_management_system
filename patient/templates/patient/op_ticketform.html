@@ -1,0 +1,240 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Op Ticket Form</title>
+{% tailwind_css %}
+ <style>
+  body {
+    background-color: antiquewhite;
+  }
+ </style>
+</head>
+<body>
+   <div class="flex items-center justify-center p-12">
+   <div class="mx-auto w-full max-w-[550px] ">
+   <form  method="POST">
+    {% csrf_token %}
+        <div class="grid grid-cols-4 gap-4">
+        <div class="mb-5">
+        <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            OP No
+        </label>
+        <input
+            type="text"
+            name="op_no"
+            id="op_no"
+            placeholder="OP No"
+            class="w-32 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+        </div>
+
+        <div class="mb-5">
+          <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            Token No
+          </label>
+          <input
+            type="text"
+            name="token_no"
+            id="token_no"
+            placeholder=""
+            class="w-32 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+      </div>
+
+        <div class="mb-5">
+          <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Full Name"
+            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+
+        <div class="grid grid-cols-3 gap-4">
+        <div class="mb-5">
+          <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            Registration fee
+          </label>
+          <input
+            type="text"
+            name="registration_fee"
+            id="registration_fee"
+            placeholder=""
+            class="w-40 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+
+        <div class="mb-5">
+          <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            Consultation fee
+          </label>
+          <input
+            type="text"
+            name="consultation_fee"
+            id="consultation_fee"
+            placeholder=""
+            class="w-40 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+
+        <div class="mb-5">
+          <label
+            for=""
+            class="mb-3 block text-base font-medium text-[#07074D]"
+          >
+            Total
+          </label>
+          <input
+            type="text"
+            name="total"
+            id="total"
+            placeholder=""
+            class="w-40 rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <label
+          for=""
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+         Cash in words
+        </label>
+        <input
+          type="text"
+          name="cash"
+          id="cash"
+          placeholder=""
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+
+      <div class="mb-5">
+        <label
+          for=""
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+          Billed by
+        </label>
+        <input
+          type="text"
+          name="billed_by"
+          id="billed_by"
+          placeholder=""
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+
+      <div class="mb-5">
+        <label
+          for=""
+          class="mb-3 block text-base font-medium text-[#07074D]"
+        >
+          Doctor
+        </label>
+        <input
+          type="text"
+          name="doctor"
+          id="doctor"
+          placeholder=""
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        />
+      </div>
+
+        <div class="-mx-3 flex flex-wrap">
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-5">
+              <label
+                for="date"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Date
+              </label>
+              <input
+                type="text"
+                name="date"
+                id="date"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-5">
+              <label
+                for="time"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Time
+              </label>
+              <input
+                type="text"
+                name="time"
+                id="time"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-5 pt-3">
+          <label
+            class="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl"
+          >
+            Address Details
+          </label>
+
+          <div class="-mx-3 flex flex-wrap">
+            <div class="w-full px-3 sm:w-1/2">
+              <div class="mb-5">
+                <textarea 
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Enter address"
+                  class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                </textarea>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+  
+        <div>
+          <button
+            class="w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >
+            Get Appointment
+          </button>
+        </div>
+</form>
+</div>
+</div>
+ 
+</body>
+</html>

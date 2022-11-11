@@ -1,0 +1,49 @@
+{% load static tailwind_tags %}
+<html lang="en" data-theme="winter">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Med</title>
+{% tailwind_css %}
+</head>
+<body>
+  <h1 class="text-2xl font-bold m-10 text-center">🗑️Delete Medicine</h1>
+<div class="flex justify-center">
+<form class="w-2/5 shadow-md bg-stone-400 cursor-pointer m-10 p-10 rounded-lg" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-5">
+      <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Name of drugs  {{medi.name_of_drugs}}</label>
+    </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Serial no  {{medi.serial_no}}</label>
+  </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Batch  {{medi.batch}}</label>
+  </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Expiry  {{medi.expiry}}</label>
+  </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Quantity  {{medi.quantity}}</label>
+  </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Rate  {{medi.rate}}</label>
+  </div>
+  
+  <div class="mb-5">
+    <label class="block text-grey-700 text-sm font-bold cursor-pointer mb-2" for="">*Amount  {{medi.amount}}</label>
+  </div>
+  
+  <div class="mb-5 flex justify-end">
+    <input class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"type="submit" name="Delete Bill" value="Delete Bill"> 
+</div>
+</form>
+</div>
+</body>
+</html> 

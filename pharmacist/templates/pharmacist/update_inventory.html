@@ -1,0 +1,71 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Inventory</title>
+  <style>
+    body {
+      background-color: honeydew;
+    }
+    form {
+      max-width: 1000px;
+      margin: auto;
+      
+    }
+  </style>
+{% tailwind_css %}
+</head>
+<body>
+  <h1 class="text-2xl font-bold text-center text-black">🖊️Update Medicine</h1>
+  <form class=" shadow-2xl bg-stone-200 cursor-pointer  p-10 mt-6 rounded-lg" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="grid grid-cols-2 gap-4"> 
+    <div class="mb-5">
+        <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Sl.No</label>
+        <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.serial_no}}"  type="text" name="serial_no" id="serial_no">
+    </div>
+
+    <div class="mb-5">
+        <label class="block text-black text-sm cursor-pointer font-bold mb-2" for="">Drug</label>
+        <input class="appearance-none shadow border cursor-pointer rounded-lg text-grey-800 w-96" value="{{inv.drug}}"  type="text" name="drug" id="drug">
+    </div>
+
+    <div class="mb-5">
+        <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Purpose</label>
+        <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800 w-96" value="{{inv.purpose}}" type="text" name="purpose" id="purpose">
+    </div>
+
+    <div class="mb-5">
+      <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Mfg.date</label>
+      <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.mfg_date}}"  type="text" name="mfg_date" id="mfg_date">
+    </div>
+  
+    <div class="mb-5">
+      <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Exp.date</label>
+      <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.exp_date}}"  type="text" name="exp_date" id="exp_date">
+    </div>
+
+    <div class="mb-5">
+      <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Quantity</label>
+      <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.quantity}}" type="text" name="quantity" id="quantity">
+    </div>
+
+    <div class="mb-5">
+      <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Unit Price</label>
+      <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.unitprice}}"  type="text" name="unitprice" id="unitprice">
+    </div>
+
+    <div class="mb-5">
+      <label class="block text-black text-sm font-bold cursor-pointer mb-2" for="">Total Price</label>
+      <input class="appearance-none shadow border rounded-lg cursor-pointer text-grey-800" value="{{inv.totalprice}}"  type="text" name="totalprice" id="totalprice">
+    </div>
+  </div>
+
+  <div class="mb-5 flex justify-end">
+  <input class="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-bold rounded-lg text-medium px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"type="submit" accept="image/*" name="Add Product" value="Update Product"> 
+  </div>
+</form>
+</body>
+</html>

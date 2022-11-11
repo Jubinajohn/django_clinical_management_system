@@ -1,0 +1,42 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Patient Medicine</title>
+{% tailwind_css %}
+</head>
+<body class="bg-yellow-200 " >
+        <div class="card-body">
+        <div class="card-actions justify-end">
+        <button class="text-black italic bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-bold rounded-full text-l px-5 py-2.5 text-center mr-40 mb-2 dark:focus:ring-yellow-900">Prescribed for {{med.name}}</button>
+        </div>
+
+        <div class="flex justify-end">
+        <div class="mr-40 text-black font-bold italic">Date: {{med.date}}  Time: {{med.time}}</div>
+        </div> 
+                
+        <div class="flex justify-start">
+        <div class="mt-10 text-black font-bold italic">Patient ID: {{med.patient_id}}</div>
+        </div>
+
+        <div class="mt-10 text-black font-bold italic">Name: {{med.name}}</div>
+        <div class="mt-10 text-black font-bold italic">Symptoms: {{med.symptoms}}</div>
+        <div class="mt-10 text-black font-bold italic">Prescribed drug: {{med.prescribed_drug}}</div>
+        <div class="mt-10 text-black font-bold italic">Frequency: {{med.frequency}}</div>
+        <div class="mt-10 text-black font-bold italic">Duration: {{med.duration}}</div>
+        <div class="mt-10 text-black font-bold italic">Quantity: {{med.quantity}}</div>
+        
+        <div class="flex justify-end">
+          <div class="mr-40 text-black font-bold italic">Signed by: {{med.signed_by}}</div>
+        </div>   
+</div>
+</body>
+</html>
+               
+          
+            
+           
+           
+           

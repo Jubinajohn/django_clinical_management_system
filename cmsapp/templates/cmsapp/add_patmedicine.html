@@ -1,0 +1,93 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Prescription</title>
+  <style>
+    body {
+  background-color: #1d838f;
+}
+  </style>
+  {% tailwind_css %}
+</head>
+<body>
+  <form action="" method="POST" >
+    {% csrf_token %}
+  <h1 class="font-bold text-center text-2xl text-black italic">➕Add Prescription</h1>
+
+  <div class=" flex justify-end  cursor-pointer ">
+  <a href="{% url 'users:doctor' %}">
+  <button type="button" class="cursor-pointer mr-2 inline-block px-6 py-2.5 bg-red-500 text-white font-bold text-sm leading-tight uppercase rounded-full shadow-md hover:bg-red-500 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg transition duration-150 ease-in-out" type="submit" value="Back">Back
+  </button>
+  </a>
+  </div>
+
+  <div class="grid grid-rows-4 grid-flow-col gap-4 ml-10 mt-10 "> 
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Patient ID: </label>
+    <input class="text-black rounded-lg " type="text"  value="" name="patient_id">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Name:</label>
+    <input type="text" class="text-black rounded-lg w-96 h-10"  name="name" value="">  
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">
+          Symptoms:
+    <br>
+    <textarea class="text-black rounded-lg " name="symptoms" cols="30" rows="3"></textarea>
+    </label>
+    </div> 
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">
+    Prescribed Drug:
+     <br/>
+    <textarea class="text-black rounded-lg" name="prescribed_drug" cols="30" rows="3"></textarea>
+    </label>
+    </div>
+    
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Frequency:</label>
+    <input class="text-black rounded-lg h-10 w-96" type="text" value="" name="frequency">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Duration:</label>
+    <input class="text-black rounded-lg h-10 w-40" type="text" name="duration" value="">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Quantity:</label>
+    <input class="text-black rounded-lg w-40 h-10" name="quantity" type="text">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Signed by:</label>
+    <input class="text-black rounded-lg h-10 w-96 " type="text" name="signed_by">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Date:</label>
+    <input class="text-black rounded-lg " type="text" name="date">
+    </div>
+
+    <div class="mb-5">
+    <label class="font-bold text-black italic">Time:</label>
+    <input class="text-black rounded-lg h-10 " type="text" name="time">
+    </div>
+    </div>
+
+    <div class=" flex justify-end  cursor-pointer ">
+    <button type="button" class=" cursor-pointer text-white bg-gradient-to-r w-24 h-10 from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+    <input class="cursor-pointer font-bold text-l" type="submit" value="Add">
+    </button>
+</div>
+</form>
+</body>
+</html>

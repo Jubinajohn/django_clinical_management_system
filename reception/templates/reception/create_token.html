@@ -1,0 +1,109 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token</title>
+{% tailwind_css %}
+</head>
+<body >
+  <form class="w-2/2 border-8 border-gray-700  cursor-pointer   p-10" style="background-color:#c682ea" action="" method="POST">
+    {% csrf_token %}
+   <fieldset>
+    <h1 class="font-bold text-black mb-5 text-center text-xl">📮Token Creation</h1>
+    <div class="grid grid-rows-4 grid-flow-col gap-4  "> 
+
+    <div class="mb-5">
+      <label class="font-bold text-black italic">Token Number: </label>
+      <input class="text-black rounded-lg " type="text"  value="" name="token_number">
+    </div>
+
+    <div class="mb-5">
+      <label class="font-bold text-black italic">Date:</label>
+      <input type="text" class="text-black rounded-lg"  name="date" value="">  
+    </div>
+
+    <div class="mb-5">
+       <label class="font-bold text-black italic">Doctor:</label>
+       <select class="text-black rounded-lg" name="doctor">
+       <option>--------</option>
+       <option>Dr.George T John</option>
+       </select>
+    </div>
+
+    <div class="mb-5">
+      <label class="font-bold text-black italic">Patient ID:</label>
+      <input class="text-black rounded-lg" type="text" value="" name="patient_id">
+      <button type="search" id="form1" class="form-control ml-80 rounded-lg text-black italic" placeholder="Search" aria-label="Search">Search
+    </div> 
+  </button>
+
+    <div class="mb-5">
+      <label class="font-bold text-black italic">Name:</label>
+      <input class="text-black rounded-lg h-10 w-96" type="name" value="" name="name">
+    </div>
+
+    <div class="mb-5">
+      <h1 class="font-bold text-black italic">Gender:</h1>
+      <label class="font-bold text-black italic"><input type="radio" name="gender" value="Male" /> Male</label>
+      <label class="font-bold text-black italic"><input type="radio" name="gender" value="Female" /> Female</label>
+      <label class="font-bold text-black italic"><input type="radio" name="gender" value="Others" /> Others</label>
+    </div>
+
+    <div class="mb-5">
+      <label class="font-bold text-black italic">Blood Group:</label>
+     
+          <select class="text-black rounded-lg" name="bloodgroup" >
+          <option>---------</option>
+          <option>A Positive</option>
+          <option>A Negative</option>
+          <option>A Unknown</option>
+          <option>B Positive</option>
+          <option>B Negative</option>
+          <option>B Unknown</option>
+          <option>AB Positive</option>
+          <option>AB Negative</option>
+          <option>AB Unknown</option>
+          <option>O Positive</option>
+          <option>O Negative</option>
+          <option>O Unknown</option>
+          <option>Unknown</option>
+          </select>
+ </div>
+
+  <div class="mb-5">
+    <label class="font-bold text-black italic">Age:<input class="text-black rounded-lg h-10 w-40 ml-2" type="age" name="age"></label>
+  </div>
+
+  <div class="mb-5">
+    <label class="font-bold text-black italic">
+      Address:
+      <br />
+      <textarea class="text-black rounded-lg" name="address" cols="30" rows="3"></textarea>
+    </label>
+  </div>
+
+  <div class="mb-5">
+    <label class="font-bold text-black italic">Taluk:<input class="text-black rounded-lg ml-2" type="text" name="taluk"></label>
+  </div>
+
+  <div class="mb-5">
+    <label class="font-bold text-black italic">Mobilenumber:<input class="text-black rounded-lg h-10 ml-2" type="mobile_number" name="mobile_number"></label>
+  </div>
+
+  <div class="mb-5">
+    <label class="font-bold text-black italic">Email:<input class="text-black rounded-lg ml-2" type="email" name="email" /></label>
+  </div>
+</div>
+    
+<div class="mb-5 flex justify-end ">
+  <button type="button" class=" text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-bold rounded-lg text-l px-5 py-2.5 text-center  mb-2">
+      <input type="submit" value="Create" >
+</button>
+</div>
+
+</form>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient View</title>
+{% tailwind_css %}
+</head>
+<body class="h-screen bg-gradient-to-b from-green-200 to-green-600 border-8 border-gray-900">  
+  <h1 class="font-bold text-center text-2xl text-black italic mt-4">Token Numbers</h1>
+  <div class="flex justify-end ">
+    <a href="{% url 'users:deletetoken'  %}">
+     <input class="text-black w-24 h-10 cursor-pointer mb-5 mr-6 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-20 "  type="submit" value="Delete"></a>
+    </div>
+
+ <div class=" flex justify-center mr-10">
+ <div class="grid grid-rows-4 grid-flow-col gap-4 ml-96  ">
+    <ol>
+      {% for t in tokens %}
+     <button type="button" class="bg-red-600 shadow-lg shadow-cyan-500/ w-24 rounded-lg h-10  mt-10 m-10 ml-2 h-24 ring-2 ring-white-500 ring-offset-4 ring-offset-white-100 ">
+     <a href= "{% url 'reception:tokendetails' t.id %}" class="text-black font-bold hover:underline">{{t.token_number}}
+     </button></a>
+      {% endfor %}
+    </ol>
+</div> 
+</body>
+</html>
+
+ 
+
+
+    
+
